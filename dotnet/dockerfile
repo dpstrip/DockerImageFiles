@@ -1,0 +1,15 @@
+# FROM  redhat/ubi9
+# # RUN yum update
+# SHELL ["/bin/bash", "--login", "-c"]
+# RUN yum -y git
+# RUN yum install -y dotnet-sdk-7.0
+
+FROM ubuntu:latest
+RUN apt-get -y update 
+
+RUN apt install -y git
+RUN apt install -y dotnet-sdk-7.0
+ENV TZ=America/Chicago
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /
+etc/timezone
+RUN apt-get install -y mono-complete
