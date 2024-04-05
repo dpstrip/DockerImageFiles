@@ -1,19 +1,9 @@
-FROM redhat/ubi9
+FROM ubuntu
 
-SHELL ["/bin/bash", "--login", "-c"]
+RUN apt update
 
-RUN yum update -y
-
-RUN yum install -y microdnf
-RUN yum install -y procps-ng
-
-RUN yum install -y git
-
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-RUN nvm install 20
-
-# RUN source $NVM_DIR/nvm.sh && nvm install 18 
-
-# RUN npm install --global typescript
-
-
+RUN apt install -y curl
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+#  source ~/.bashrc && \
+#  nvm install node && \
+RUN apt install node-typescript -y
