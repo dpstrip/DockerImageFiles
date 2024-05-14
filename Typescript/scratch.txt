@@ -1,0 +1,5 @@
+docker build -t test .
+docker run --rm -it test bash
+
+docker push dpstrip/test:1
+docker tag test dpstrip/test:1

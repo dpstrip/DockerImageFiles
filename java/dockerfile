@@ -8,24 +8,25 @@
 # RUN microdnf  install -y nodejs
 # RUN microdnf  install -y npm
 
-# FROM debian
+FROM ubuntu
 
-# RUN apt-get update
-# RUN apt-get install -y openjdk-17-jdk
-# RUN apt-get install -y git
-# RUN apt-get  install -y maven
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
-#     && nvm install 
-# # RUN bash nvm install 
-# # RUN apt-get  install -y nodejs npm
-# RUN apt-get install -y build-essential
-# # RUN apt-get  install -y npm
+RUN apt update
+# RUN apt install -y openjdk-17-jdk
+RUN apt install -y openjdk-17-jdk
+RUN apt install -y git
+RUN apt install -y maven
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+RUN apt install node-typescript -y
+# RUN bash nvm install 
+# RUN apt-get  install -y nodejs npm
+# RUN apt install -y build-essential
+# RUN apt-get  install -y npm
 
-FROM redhat/ubi9
-RUN yum install -y java-1.8.0-openjdk-devel
-RUN yum install -y java-17-openjdk-devel
-RUN yum update
-RUN yum install -y git
-RUN yum install -y maven
-RUN yum install -y nodejs
-RUN yum install -y npm
+# FROM redhat/ubi9
+# RUN yum install -y java-1.8.0-openjdk-devel
+# RUN yum install -y java-17-openjdk-devel
+# RUN yum update
+# RUN yum install -y git
+# RUN yum install -y maven
+# RUN yum install -y nodejs
+# RUN yum install -y npm
